@@ -1,0 +1,302 @@
+# 🧒 Class in Java
+
+## 🔹 What is a Class?
+
+A **class is a non-primitive/reference type in Java that acts as a blueprint for creating objects.**
+
+Think of a class like a **house blueprint** 🏠.
+
+The blueprint tells us:
+
+* What the house has
+* What properties it contains
+* What things it can do
+
+Similarly, a Java class defines **data (variables)** and **behavior (methods)** for its objects.
+
+---
+
+## 1️⃣ Class is a Non-Primitive Data Type
+
+A class is **not one of Java's 8 primitive data types**.
+
+Primitive types:
+
+```text
+byte
+short
+int
+long
+float
+double
+char
+boolean
+```
+
+Classes are **reference types**.
+
+Example:
+
+```java
+Student s;
+```
+
+Here:
+
+```text
+Student → class/reference type
+s       → reference variable
+```
+
+---
+
+# 2️⃣ Reference to a Class Object
+
+Suppose we create a class:
+
+```java
+class Student {
+    String name;
+    int age;
+}
+```
+
+Now create an object:
+
+```java
+Student s = new Student();
+```
+
+Think of it like:
+
+```text
+        Student
+        class
+       (Blueprint)
+           │
+          new
+           ↓
+   ┌─────────────────┐
+   │ Student Object  │
+   │ name             │
+   │ age              │
+   └─────────────────┘
+           ↑
+           │
+       reference
+           │
+           s
+```
+
+The variable `s` **refers to the Student object**.
+
+### 🧠 Important
+
+Your note says:
+
+> **Reference address of class object**
+
+For beginner understanding, you can think of a reference as pointing toward the object's location.
+
+But technically, Java references are **not raw memory addresses that programmers can directly manipulate**.
+
+So interview-wise, prefer:
+
+> **A reference variable holds a reference to an object.**
+
+---
+
+# 3️⃣ Class-Name Declaration
+
+You can declare a reference variable using the **class name as its type**.
+
+### Syntax
+
+```java
+ClassName variableName;
+```
+
+Example:
+
+```java
+Student s;
+```
+
+Here:
+
+```text
+Student → class name / reference type
+s       → reference variable
+```
+
+At this point, **no Student object has been created yet**.
+
+```text
+s → null
+```
+
+Then:
+
+```java
+s = new Student();
+```
+
+Now an object is created and `s` refers to it.
+
+```text
+s
+ ↓
+Student Object
+```
+
+---
+
+# 💻 Complete Example
+
+```java
+class Student {
+
+    String name;
+    int age;
+}
+
+class Demo {
+
+    public static void main(String[] args) {
+
+        Student s = new Student();
+
+        s.name = "Basha";
+        s.age = 26;
+
+        System.out.println(s.name);
+        System.out.println(s.age);
+    }
+}
+```
+
+### Output
+
+```text
+Basha
+26
+```
+
+---
+
+# 🔄 Understand the Two Steps
+
+### Step 1: Declaration
+
+```java
+Student s;
+```
+
+Means:
+
+> "Create a reference variable named `s` that can refer to a `Student` object."
+
+```text
+s → null
+```
+
+### Step 2: Object Creation
+
+```java
+s = new Student();
+```
+
+Means:
+
+> "Create a Student object and make `s` refer to it."
+
+```text
+s
+ ↓
+┌──────────────┐
+│ Student      │
+│ Object       │
+└──────────────┘
+```
+
+---
+
+# 🧒 Real-Life Analogy
+
+Imagine a **blueprint** for a car.
+
+```text
+Car Class
+   ↓
+Blueprint 🚗
+```
+
+You can create actual cars from it:
+
+```text
+Car Class
+   ↓
+   new
+   ↓
+Car Object
+```
+
+And a variable can refer to that object:
+
+```text
+Car car = new Car();
+
+car
+ ↓
+🚗 Car Object
+```
+
+---
+
+# 🧠 Very Important Difference
+
+```java
+Student s;
+```
+
+does **not** create an object.
+
+```java
+Student s = new Student();
+```
+
+does create an object.
+
+| Code                         | Meaning                             |
+| ---------------------------- | ----------------------------------- |
+| `Student`                    | Class/reference type                |
+| `s`                          | Reference variable                  |
+| `new Student()`              | Creates an object                   |
+| `Student s;`                 | Declares reference                  |
+| `Student s = new Student();` | Declares reference + creates object |
+
+---
+
+## 🎯 Interview Answer
+
+> **A class in Java is a reference type that serves as a blueprint for creating objects. A variable declared using a class name is a reference variable, which can refer to an object of that class.**
+
+### 🧠 Easy Memory Trick
+
+Remember these three:
+
+```text
+Class       → Blueprint 📋
+Object      → Actual thing 🏠
+Reference   → Way to access the object 🏷️
+```
+
+And:
+
+```java
+Student s = new Student();
+```
+
+means:
+
+> **`Student` = type → `s` = reference → `new Student()` = object creation**.

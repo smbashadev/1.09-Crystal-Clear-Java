@@ -1,0 +1,471 @@
+# 🧒 String Immutability Program
+
+This program is one of the **best ways to understand why String is immutable in Java**.
+
+The main idea is:
+
+> **`concat()` does not change the original String. It creates a new String object.**
+
+---
+
+## 1. What is `concat()`?
+
+`concat()` is a String method used to **join one String with another String**.
+
+Example:
+
+```java
+String s = "Java";
+
+s.concat(" Programming");
+```
+
+You might think:
+
+```text
+Java → Java Programming
+```
+
+But that's **not what happens to the original String**.
+
+Because String is immutable.
+
+---
+
+# 2. Original String Does Not Change
+
+Consider:
+
+```java
+String s = "Java";
+
+s.concat(" Programming");
+
+System.out.println(s);
+```
+
+### Output
+
+```text
+Java
+```
+
+Why?
+
+Because:
+
+```java
+s.concat(" Programming");
+```
+
+creates a **new String object**.
+
+The original `"Java"` remains unchanged.
+
+Conceptually:
+
+```text
+Before:
+
+s
+↓
+"Java"
+```
+
+After `concat()`:
+
+```text
+s
+↓
+"Java"
+
+
+New String object
+↓
+"Java Programming"
+```
+
+But we didn't store the new String anywhere.
+
+So we lose the reference to that new result.
+
+---
+
+# 3. Complete Program
+
+```java
+class StringImmutability {
+
+    public static void main(String[] args) {
+
+        String s = "Java";
+
+        s.concat(" Programming");
+
+        System.out.println(s);
+    }
+}
+```
+
+### Output
+
+```text
+Java
+```
+
+### Why not?
+
+```text
+Java Programming
+```
+
+Because the original String was not modified.
+
+---
+
+# 4. `concat()` Creates a New String Object
+
+Look at:
+
+```java
+String s = "Java";
+
+s.concat(" Programming");
+```
+
+Think of it like this:
+
+```text
+Original String
+      ↓
+   "Java"
+      │
+      │ concat(" Programming")
+      ↓
+New String
+      ↓
+"Java Programming"
+```
+
+The original:
+
+```text
+"Java"
+```
+
+is still unchanged.
+
+The new result:
+
+```text
+"Java Programming"
+```
+
+is a different String object.
+
+---
+
+# 5. Assignment to the Result
+
+If we actually want to use the new String, we need to **assign the result** to a reference variable.
+
+```java
+String s = "Java";
+
+s = s.concat(" Programming");
+
+System.out.println(s);
+```
+
+### Output
+
+```text
+Java Programming
+```
+
+Now what happened?
+
+Initially:
+
+```text
+s
+↓
+"Java"
+```
+
+Then:
+
+```java
+s = s.concat(" Programming");
+```
+
+The `concat()` operation creates:
+
+```text
+"Java Programming"
+```
+
+and `s` is made to refer to the new String.
+
+Conceptually:
+
+```text
+Before:
+
+s ─────→ "Java"
+
+
+After:
+
+s ─────→ "Java Programming"
+```
+
+The original `"Java"` was **not changed**.
+
+---
+
+# 6. Complete Program With Assignment
+
+```java
+class StringImmutability {
+
+    public static void main(String[] args) {
+
+        String s = "Java";
+
+        s = s.concat(" Programming");
+
+        System.out.println(s);
+    }
+}
+```
+
+### Output
+
+```text
+Java Programming
+```
+
+---
+
+# 7. Compare Both Programs
+
+### ❌ Without assignment
+
+```java
+String s = "Java";
+
+s.concat(" Programming");
+
+System.out.println(s);
+```
+
+Output:
+
+```text
+Java
+```
+
+Because the new result wasn't assigned.
+
+---
+
+### ✅ With assignment
+
+```java
+String s = "Java";
+
+s = s.concat(" Programming");
+
+System.out.println(s);
+```
+
+Output:
+
+```text
+Java Programming
+```
+
+Because we stored the new String reference in `s`.
+
+---
+
+# 8. Real-Life Example 📝
+
+Imagine you have a sentence written on a **stone**:
+
+```text
+JAVA
+```
+
+You want to add:
+
+```text
+PROGRAMMING
+```
+
+You can't erase or modify the original stone because it's like an **immutable String**.
+
+Instead, someone makes a **new stone**:
+
+```text
+JAVA PROGRAMMING
+```
+
+So:
+
+```text
+Original stone:
+JAVA
+
+New stone:
+JAVA PROGRAMMING
+```
+
+If you don't keep the new stone, you continue using the old one.
+
+That's similar to:
+
+```java
+s.concat(" Programming");
+```
+
+If you keep the result:
+
+```java
+s = s.concat(" Programming");
+```
+
+then `s` refers to the new String.
+
+---
+
+# 9. Multiple `concat()` Calls
+
+You can also do:
+
+```java
+class StringDemo {
+
+    public static void main(String[] args) {
+
+        String s = "Java";
+
+        s = s.concat(" is");
+        s = s.concat(" easy");
+
+        System.out.println(s);
+    }
+}
+```
+
+### Output
+
+```text
+Java is easy
+```
+
+Think of the process:
+
+```text
+"Java"
+   ↓
+"Java is"
+   ↓
+"Java is easy"
+```
+
+Each `concat()` creates a new String, and we assign the result back to `s`.
+
+---
+
+# 🧠 10. Your Four Important Points
+
+### `concat()`
+
+Used to join Strings.
+
+```java
+s.concat(" Programming");
+```
+
+### Original String
+
+The original String is **not modified**.
+
+```text
+"Java"
+```
+
+remains unchanged.
+
+### New String object
+
+`concat()` returns a **new String** containing the combined text.
+
+```text
+"Java Programming"
+```
+
+### Assignment to result
+
+To use the new String:
+
+```java
+s = s.concat(" Programming");
+```
+
+We assign the returned String to `s`.
+
+---
+
+# ⭐ Remember Forever
+
+```text
+String s = "Java";
+
+s.concat(" Programming");
+```
+
+means:
+
+```text
+"Java"
+   ↓
+concat()
+   ↓
+New String: "Java Programming"
+
+Original "Java" → unchanged
+New result      → not stored in s
+```
+
+But:
+
+```java
+String s = "Java";
+
+s = s.concat(" Programming");
+```
+
+means:
+
+```text
+"Java"
+   ↓
+concat()
+   ↓
+"Java Programming"
+   ↓
+assign to s
+```
+
+### 🎯 Golden Rule
+
+> **String is immutable: `concat()` does not modify the original String; it creates and returns a new String. If you want to use that new String, assign the result to a variable.**
+
+```java
+s = s.concat(" Programming");
+```
+
+**This single line is the key to understanding String immutability.**

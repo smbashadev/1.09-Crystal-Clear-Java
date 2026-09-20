@@ -21,7 +21,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/shaikbasha-dev">GitHub</a> •
+  <a href="https://github.com/smbashadev">GitHub</a> •
   <a href="https://www.linkedin.com/in/shaikbasha-dev/">LinkedIn</a> •
   <a href="mailto:smbashadev@gmail.com">Email</a>
 </p>
@@ -428,13 +428,12 @@ This keeps each repository **focused, maintainable, easy to navigate, and recrui
 | Version Control   | Git & GitHub                       |
 
 ---
-
 # 🌐 Connect With Me
 
 <p align="center">
 
-<a href="https://github.com/shaikbasha-dev">
-<img src="https://img.shields.io/badge/GitHub-shaikbasha--dev-black?style=for-the-badge&logo=github" alt="GitHub">
+<a href="https://github.com/smbashadev">
+<img src="https://img.shields.io/badge/GitHub-smbashadev-black?style=for-the-badge&logo=github" alt="GitHub">
 </a>
 
 <a href="https://www.linkedin.com/in/shaikbasha-dev/">
@@ -446,7 +445,6 @@ This keeps each repository **focused, maintainable, easy to navigate, and recrui
 </a>
 
 </p>
-
 ---
 
 # ⭐ Repository Goal
